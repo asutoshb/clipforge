@@ -1,0 +1,27 @@
+# ClipForge core dependencies (all free / open-source)
+
+# Backend API
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+python-multipart>=0.0.9
+pydantic>=2.6.0
+pydantic-settings>=2.2.0
+
+# Media download + processing
+yt-dlp>=2024.4.9
+ffmpeg-python>=0.2.0
+moviepy>=1.0.3
+
+# Transcription (local, free)
+faster-whisper>=1.0.1
+
+# AI / LLM client (local via Ollama HTTP, optional cloud)
+httpx>=0.27.0
+
+# Media analysis (Feature 1 reframe + Feature 3 tagging)
+opencv-python>=4.9.0
+scenedetect>=0.6.3
+librosa>=0.10.1
+
+# Utilities
+python-slugify>=8.0.4

@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Env / secrets
+.env
+*.env.local
+
+# ClipForge working files
+storage/
+output/
+downloads/
+uploads/
+*.mp4
+*.mkv
+*.webm
+*.mp3
+*.wav
+!web/**/*.mp4
+
+# Node / frontend
+web/node_modules/
+web/dist/
+web/.vite/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
