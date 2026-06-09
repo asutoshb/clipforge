@@ -61,7 +61,8 @@ cp .env.example .env        # edit if you want cloud LLM instead of local
 
 ### Run the API
 ```bash
-uvicorn clipforge.api.main:app --reload     # docs at http://localhost:8000/docs
+# from the clipforge/ directory
+uvicorn api.main:app --reload     # docs at http://localhost:8000/docs
 ```
 
 ### Run the web UI
@@ -71,10 +72,24 @@ cd web && npm install && npm run dev          # http://localhost:5173
 
 ### Or use the CLI
 ```bash
-python -m clipforge.cli download "<url>" --start 70 --end 100
-python -m clipforge.cli shorts "<url>" --count 3 --platform youtube
-python -m clipforge.cli reel ./my_media "energetic 30s travel reel" --platform instagram
-python -m clipforge.cli caption "we built an AI editor" --platform linkedin
+python cli.py download "<url>" --start 70 --end 100
+python cli.py shorts "<url>" --count 3 --platform youtube
+python cli.py reel ./my_media "energetic 30s travel reel" --platform instagram
+python cli.py caption "we built an AI editor" --platform linkedin
+```
+
+## 🛠️ Troubleshooting
+
+### YouTube 403 Forbidden
+If you see `HTTP Error 403: Forbidden` when downloading, YouTube is likely blocking the default web client. ClipForge defaults to the `android` player client which bypasses this. You can customize this in your `.env`:
+```bash
+CLIPFORGE_YOUTUBE_PLAYER_CLIENT=android
+```
+
+### Ollama Model
+Ensure the Ollama app is running and you have pulled the model:
+```bash
+ollama pull llama3.1
 ```
 
 ## 🗺️ Roadmap

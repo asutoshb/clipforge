@@ -23,6 +23,7 @@ class DownloadResult:
 
 
 def _ydl_opts(out_template: str, section: Optional[str] = None) -> dict:
+    clients = [c.strip() for c in get_settings().youtube_player_client.split(",") if c.strip()]
     opts = {
         "format": "bv*+ba/b",
         "merge_output_format": "mp4",
@@ -30,6 +31,8 @@ def _ydl_opts(out_template: str, section: Optional[str] = None) -> dict:
         "noplaylist": True,
         "quiet": True,
         "no_warnings": True,
+        # Avoid YouTube SABR 403s by selecting a client that returns real URLs.
+        "extractor_args": {"youtube": {"player_client": clients}},
     }
     if section:
         # download only a time range, e.g. "*00:01:10-00:01:40"

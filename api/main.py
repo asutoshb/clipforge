@@ -1,6 +1,6 @@
 """FastAPI app exposing ClipForge's three features.
 
-Run: uvicorn clipforge.api.main:app --reload
+Run from the clipforge/ directory: uvicorn api.main:app --reload
 Docs: http://localhost:8000/docs
 """
 from __future__ import annotations
@@ -15,9 +15,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from ..core import captions as captions_mod
-from ..core import pipeline
-from ..core.config import get_settings
+from core import captions as captions_mod
+from core import pipeline
+from core.config import get_settings
 
 app = FastAPI(title="ClipForge", version="0.1.0")
 app.add_middleware(

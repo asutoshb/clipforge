@@ -28,6 +28,12 @@ class Settings(BaseSettings):
     # Cloud LLM (optional)
     openai_model: str = "gpt-4o-mini"
 
+    # YouTube download
+    # yt-dlp player client(s) used to fetch formats. YouTube SABR-gates the
+    # default web/tv clients for many videos (HTTP 403); "android" still
+    # returns directly-downloadable URLs. Comma-separate to try several.
+    youtube_player_client: str = "android"
+
     # Transcription
     whisper_model: str = "base"
     whisper_device: str = "cpu"
